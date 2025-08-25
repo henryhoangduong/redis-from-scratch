@@ -1,6 +1,7 @@
 #include "CLI.H"
 #include <iostream>
 #include <string>
+
 int main(int argc, char *argv[]) {
   std::string host = "127.0.0.1";
   int port = 6379;
@@ -16,4 +17,6 @@ int main(int argc, char *argv[]) {
     }
     ++i;
   }
+  CLI cli(host, port);
+  cli.run();
 }
