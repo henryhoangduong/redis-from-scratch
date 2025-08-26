@@ -1,6 +1,6 @@
 #ifndef CLI_H
 #define CLI_H
-#include "RedisClient.H"
+#include "RedisClient.h"
 #include <string>
 class CLI {
 public:

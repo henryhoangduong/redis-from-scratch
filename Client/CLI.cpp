@@ -1,5 +1,5 @@
-#include "CLI.H"
-
+#include "CLI.h"
+#include "CommandHandler.h"
 static std::string trim(const std::string &s) {
   size_t start = s.find_first_not_of(" \t\n\r\f\v");
   if (start == std::string::npos)
@@ -18,7 +18,7 @@ void CLI::run() {
   std::string host = "127.0.0.1";
   int port = 6379;
   while (true) {
-    std::cout << host << ":" << port << ">";
+    std::cout << host << ": " << port << ">";
     std::cout.flush();
     std::string line;
     if (!std::getline(std::cin, line))
@@ -29,6 +29,16 @@ void CLI::run() {
     if (line == "quit") {
       std::cout << "Goodbye.\n";
       break;
+    }
+    if (line == "help") {
+      std::cout << "Displaying help\n";
+      continue;
+    }
+    std::vector<std::string> args = CommandHandler::splitArgs(line);
+    if (args.empty())
+      continue;
+    for (const auto &arg : args) {
+      std::cout << arg << "\n";
     }
   }
 }
