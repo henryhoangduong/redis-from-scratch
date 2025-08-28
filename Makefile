@@ -1,6 +1,6 @@
 # Compiler
 CXX=g++
-CXXFLAGS=-Wall -Wextra -std=c++17
+CXXFLAGS=-Wall  -std=c++17
 
 # Directories
 SRC_DIR=Client
