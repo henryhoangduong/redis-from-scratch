@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/mac/Projects/C++/redis-from-scratch",
-      "program": "/Users/mac/Projects/C++/redis-from-scratch/build/Debug/outDebug"
+      "cwd": "/Users/mac/Projects/C++/redis-from-scratch/Redis-Client/Client",
+      "program": "/Users/mac/Projects/C++/redis-from-scratch/Redis-Client/Client/build/Debug/outDebug"
     }
   ]
 }
