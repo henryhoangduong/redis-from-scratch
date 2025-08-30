@@ -25,5 +25,17 @@ void RedisServer::run() {
   }
   int opt = 1;
   setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
-  sockaddr_in serverAddr {};
+  sockaddr_in serverAddr{};
+  serverAddr.sin_family = AF_INET;
+  serverAddr.sin_port = htons(port);
+  serverAddr.sin_addr.s_addr = INADDR_ANY;
+  if (bind(server_socket, (struct sockaddr *)&serverAddr, sizeof(serverAddr)) <
+      0) {
+    std::cerr << "Error binding server socket \n";
+  }
+  if (listen(server_socket, 10) < 0) {
+    std::cerr << "Error listening on server socket.\n";
+    return;
+  }
+  std::cout << "Redis Server listening on port " << port << endl;
 }
